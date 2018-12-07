@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="container__title">
+        <h1>Dog Messenger</h1>
+      </div>
+      <p>Put your phone number in to get random dog pictures</p>
+        <div class="container__form">
+          <form id="number__form" action="http://localhost:3000/action" method="post">
+            <label for="phone">Phone Number :</label>
+            <input id="number" type="tel" id="phone" name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required> <input type="submit"><br />
+          </form>
+          <span class="container__format">Format: 123-456-7890</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

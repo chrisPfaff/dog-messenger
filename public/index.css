@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(242, 242, 242, 0.812);
+  margin: 0 100px 0 100px;
+  height: 100vh; }
+
+.container__title {
+  color: black; }
+
+.container__form {
+  margin-top: 50px; }
+
+.container__format {
+  margin: 80px; }
