@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const axios = require("axios");
 require("dotenv").config();
 const Nexmo = require("nexmo");
 const app = express();
@@ -9,21 +10,35 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+const getRandomDogImage = phone => {
+  axios
+    .get("https://dog.ceo/api/breed/corgi/images/random")
+    .then(data => {
+      return data;
+    })
+    .then(img => {
+      sendMessage(phone, img.data.message);
+    });
+};
 
-app.post("/action", (req, res) => {
+const sendMessage = (phone, url) => {
   const nexmo = new Nexmo({
     apiKey: `${process.env.API_KEY}`,
     apiSecret: `${process.env.SECRET}`
   });
-  const from = "15404694839";
-  const to = "15612544959";
-  const text = "https://images.dog.ceo/breeds/cairn/n02096177_13306.jpg";
+  const from = "16262911112";
+  const to = `1${phone.replace(/-/g, "")}`;
+  const text = `your dog message ${url}`;
 
   nexmo.message.sendSms(from, to, text);
+};
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/action", async (req, res) => {
+  getRandomDogImage(req.body.phone);
   res.redirect("/");
 });
 
