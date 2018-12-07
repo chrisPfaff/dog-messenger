@@ -6,7 +6,8 @@
   "scripts": {
     "scss": "node-sass --watch public -o public",
     "dev": "nodemon index.js",
-    "start": "npm run scss & npm run dev"
+    "build": "npm run scss & npm run dev",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
