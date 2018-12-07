@@ -34,6 +34,23 @@
   }
 }
 
+.submit__button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 3px;
+  width: 100px;
+  font-family: "Raleway", sans-serif;
+}
+.submit__button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 1px;
+  width: 100px;
+  font-family: "Raleway", sans-serif;
+}
+
 .container__title span:nth-child(1) {
   transition-delay: 300ms;
 }

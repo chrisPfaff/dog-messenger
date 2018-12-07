@@ -5,23 +5,44 @@
   align-items: center;
   margin: 0 100px 0 100px;
   height: 100vh; }
-  .container__title {
-    margin-top: 20px;
-    padding: 0 20px 0 20px;
-    color: black;
-    border: solid;
-    border-width: 5px; }
-    .container__title span {
-      opacity: 0;
-      transition: opacity 1300ms; }
-  .container__form {
-    margin-top: 50px; }
-  .container__format {
-    margin: 80px; }
-  .container__text {
-    padding-top: 30px;
-    border-bottom: 5px solid black;
-    font-size: 25px; }
+
+.container__title {
+  margin-top: 20px;
+  padding: 0 20px 0 20px;
+  color: black;
+  border: solid;
+  border-width: 5px; }
+
+.container__title span {
+  opacity: 0;
+  transition: opacity 1300ms; }
+
+.container__form {
+  margin-top: 50px; }
+
+.container__format {
+  margin: 80px; }
+
+.container__text {
+  padding-top: 30px;
+  border-bottom: 5px solid black;
+  font-size: 25px; }
+
+.submit__button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 3px;
+  width: 100px;
+  font-family: "Raleway", sans-serif; }
+
+.submit__button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 1px;
+  width: 100px;
+  font-family: "Raleway", sans-serif; }
 
 .container__title span:nth-child(1) {
   transition-delay: 300ms; }
@@ -65,17 +86,17 @@
     display: flex;
     flex-direction: column;
     align-items: center; }
-    .container__title {
-      margin-top: 20px;
-      padding: 0 20px 0 20px;
-      color: black;
-      border: solid;
-      border-width: 5px; }
-    .container__form {
-      margin-top: 50px; }
-    .container__format {
-      margin: 80px; }
-    .container__text {
-      padding-top: 30px;
-      border-bottom: 5px solid black;
-      font-size: 15px; } }
+  .container__title {
+    margin-top: 20px;
+    padding: 0 20px 0 20px;
+    color: black;
+    border: solid;
+    border-width: 5px; }
+  .container__form {
+    margin-top: 50px; }
+  .container__format {
+    margin: 80px; }
+  .container__text {
+    padding-top: 30px;
+    border-bottom: 5px solid black;
+    font-size: 15px; } }
