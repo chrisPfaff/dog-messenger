@@ -1,9 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-//const MessagingResponse = require("twilio").twiml.MessagingResponse;
 require("dotenv").config();
-const client = require("twilio")(process.env.accountSid, process.env.authToken);
-//const twilio = require("twilio");
+const Nexmo = require("nexmo");
 const app = express();
 const path = require("path");
 const port = 3000;
@@ -16,13 +14,16 @@ app.get("/", (req, res) => {
 });
 
 app.post("/action", (req, res) => {
-  client.messages
-    .create({
-      body: "Hello from Node",
-      to: "+#", // Text this number
-      from: "+#" // From a valid Twilio number
-    })
-    .then(message => console.log(message.sid));
+  const nexmo = new Nexmo({
+    apiKey: `${process.env.API_KEY}`,
+    apiSecret: `${process.env.SECRET}`
+  });
+  const from = "15404694839";
+  const to = "15612544959";
+  const text = "https://images.dog.ceo/breeds/cairn/n02096177_13306.jpg";
+
+  nexmo.message.sendSms(from, to, text);
+
   res.redirect("/");
 });
 
