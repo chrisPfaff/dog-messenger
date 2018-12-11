@@ -26,7 +26,7 @@ const sendMessage = async phone => {
       return img.data.message;
     });
 
-  nexmo.message.sendSms(from, to, text);
+  nexmo.message.sendSms(from, to, `Here's your dog image ${text}`);
 };
 
 app.get("/", (req, res) => {
