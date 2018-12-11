@@ -10,25 +10,21 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const getRandomDogImage = phone => {
-  axios
-    .get("https://dog.ceo/api/breed/corgi/images/random")
-    .then(data => {
-      return data;
-    })
-    .then(img => {
-      sendMessage(phone, img.data.message);
-    });
-};
-
-const sendMessage = (phone, url) => {
+const sendMessage = async phone => {
   const nexmo = new Nexmo({
     apiKey: `${process.env.API_KEY}`,
     apiSecret: `${process.env.SECRET}`
   });
   const from = "16262911112";
   const to = `1${phone.replace(/-/g, "")}`;
-  const text = `your dog message ${url}`;
+  const text = await axios
+    .get("https://dog.ceo/api/breed/corgi/images/random")
+    .then(data => {
+      return data;
+    })
+    .then(img => {
+      return img.data.message;
+    });
 
   nexmo.message.sendSms(from, to, text);
 };
@@ -38,7 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/action", async (req, res) => {
-  getRandomDogImage(req.body.phone);
+  sendMessage(req.body.phone);
   res.redirect("/");
 });
 
